@@ -1,5 +1,8 @@
-USER=datasalaryman
-PASSWORD=rstudio
+VERSION  = 4.1.2
 
 run:
-	docker run -d -e USER={{ USER }} PASSWORD={{ PASSWORD }} --rm -p 8787:8787 rocker/rstudio:4.1.2
+	docker run -d \
+		--env-file .env \
+		--rm \
+		-p 8787:8787 \
+		rocker/rstudio:$(VERSION)
