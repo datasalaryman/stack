@@ -6,6 +6,7 @@ run:
   		-e PUID=0 \
   		-e PGID=0 \
   		-e TZ=Asia/Manila \
+		-e DEFAULT_WORKSPACE=/home/vscode \
   		-p 8443:8443 \
   		-v /opt/vscode/config:/config \
 		-v /root:/home \
