@@ -5,4 +5,5 @@ run:
 		--env-file .env \
 		--rm \
 		-p 8787:8787 \
+		-v /root/rstudio:/home/rstudio \
 		rocker/rstudio:$(VERSION)
