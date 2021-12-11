@@ -10,5 +10,6 @@ run:
   		-e TZ=Asia/Manila \
   		-p 8443:8443 \
   		-v /opt/vscode/config:/config \
+		-v /root:/home \
   		--restart unless-stopped \
   		lscr.io/linuxserver/code-server
