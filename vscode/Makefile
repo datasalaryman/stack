@@ -6,9 +6,9 @@ run:
   		-e PUID=0 \
   		-e PGID=0 \
   		-e TZ=Asia/Manila \
-		-e DEFAULT_WORKSPACE=/home/vscode \
+		-e DEFAULT_WORKSPACE=/home/code \
   		-p 8443:8443 \
   		-v /opt/vscode/config:/config \
-		-v /root:/home \
+		-v /root/code:/home/code \
   		--restart unless-stopped \
   		lscr.io/linuxserver/code-server
