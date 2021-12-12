@@ -13,13 +13,12 @@ jobs:
       - name: Install dependencies
         run: > 
           sudo apt-get update -y && 
-          sudo apt-get install -y git \
+          sudo apt-get install -y \ 
             ca-certificates \
             curl \
             gnupg \
             lsb-release \
-            wget \ 
-            software-properties-common
+            build-essential
       - name: Install docker
         run: > 
           curl -fsSL \
