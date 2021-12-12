@@ -12,5 +12,6 @@ jobs:
         uses: actions/checkout@master
       - name: Run docker container in actions run
         run: > 
-          cd rstudio &&
+          cd rstudio && 
+          echo "${{ secrets.RSTUDIO_ENV_FILE }}" > .env &&
           make run
