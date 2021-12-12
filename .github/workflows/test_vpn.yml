@@ -19,7 +19,7 @@ jobs:
             gnupg \
             lsb-release \
             wget \ 
-            make
+            software-properties-common
       - name: Install docker
         run: > 
           curl -fsSL \
