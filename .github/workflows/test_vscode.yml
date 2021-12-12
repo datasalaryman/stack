@@ -13,6 +13,7 @@ jobs:
       - name: Install dependencies
         run: > 
           apt-get update -y
+
           apt-get install -y git \
             ca-certificates \
             curl \
@@ -47,7 +48,7 @@ jobs:
 
           systemctl enable docker.service
           systemctl enable containerd.service
-
+          
           curl -L \ 
             "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" \ 
             -o /usr/local/bin/docker-compose
