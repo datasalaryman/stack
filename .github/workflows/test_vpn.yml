@@ -5,7 +5,7 @@ on:
 
 jobs:
   test_rstudio_container_run:
-    name: Test RStudio container run
+    name: Test VPN container run
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
