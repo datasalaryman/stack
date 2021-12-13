@@ -13,4 +13,4 @@ jobs:
       - name: Run docker container in actions run
         run: > 
           cd vscode &&
-          make run PASSWORD="${{ secret.VSCODE_PASSWORD }}"
+          make run PASSWORD="${{ secrets.VSCODE_PASSWORD }}"
