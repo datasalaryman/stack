@@ -1,4 +1,5 @@
 .SHELL = /bin/bash
+PASSWORD=vscode
 
 run:
 	docker run -d \
@@ -7,7 +8,7 @@ run:
   		-e PGID=0 \
   		-e TZ=Asia/Manila \
 		-e DEFAULT_WORKSPACE=/home/code \
-		-e HASHED_PASSWORD="$$argon2i$$v=19$$m=4096,t=3,p=1$$c+xFSNrOyN5JEVGIFrtb1A$$vcZAADJLC3GmOFBMSTueHxvsDGeZ4NHrYowXOh0iA9g" \
+		-e PASSWORD="$(PASSWORD)" \
   		-p 8443:8443 \
   		-v /opt/vscode/config:/config \
 		-v /root/code:/home/code \
