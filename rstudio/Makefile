@@ -1,4 +1,8 @@
-VERSION  = 4.1.2
+.PHONY: run
+
+SHELL:=/bin/bash
+
+VERSION=4.1.2
 USER=datasalaryman
 PASSWORD=rstudio
 

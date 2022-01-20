@@ -1,3 +1,7 @@
+.PHONY: run
+
+SHELL:=/bin/bash
+
 run:
 	docker run -d \
 		--name=vpn \

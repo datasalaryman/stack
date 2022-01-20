@@ -1,4 +1,8 @@
-.SHELL = /bin/bash
+.PHONY: run
+
+SHELL:=/bin/bash
+
+VERSION=4.1.2
 PASSWORD=vscode
 
 run:
