@@ -7,7 +7,7 @@ PASSWORD=vscode
 
 clean:
 	if [[ -d "/opt/vscode/config/" ]]; then \
-		rm -rf /opt/vscode/config/; \
+		rm -r /opt/vscode/config/*; \
 	fi
 
 build:
