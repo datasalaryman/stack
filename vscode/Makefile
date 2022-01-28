@@ -1,9 +1,14 @@
-.PHONY: build run
+.PHONY: clean build run
 
 SHELL:=/bin/bash
 
 VERSION=4.1.2
 PASSWORD=vscode
+
+clean:
+	if [[ -d "opt/vscode/config/" ]]; then \
+		rm -rf opt/vscode/config/; \
+	fi
 
 build:
 	docker build -t=code .
