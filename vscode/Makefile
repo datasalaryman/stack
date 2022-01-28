@@ -15,9 +15,9 @@ build:
 
 config: 
 	if ! [[ -d "/opt/vscode/config/User" ]]; then \
-	-	mkdir /opt/vscode; \
-	-	mkdir /opt/vscode/config; \
-	-	mkdir /opt/vscode/config/User; \
+		mkdir -p /opt/vscode; \
+		mkdir -p /opt/vscode/config; \
+		mkdir -p /opt/vscode/config/User; \
 	fi
 	cp settings.json /opt/vscode/config/User/
 
