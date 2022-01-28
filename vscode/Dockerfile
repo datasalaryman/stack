@@ -4,7 +4,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 SHELL ["/bin/bash", "-c"]
 
-COPY . $WORKDIR
+COPY settings.json /config/data/User
 
 ENV PUID=0 
 ENV PGID=0 
