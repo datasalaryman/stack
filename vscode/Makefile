@@ -13,7 +13,15 @@ clean:
 build:
 	docker build -t=code .
 
-run: build
+config: 
+	if ! [[ -d "/opt/vscode/config/User" ]]; then \
+		-mkdir /opt/vscode; \
+		-mkdir /opt/vscode/config; \
+		-mkdir /opt/vscode/config/User; \
+	fi
+	cp settings.json /opt/vscode/config/User/
+
+run: config
 	docker run -d \
 		--name=code \
 		-e PASSWORD="$(PASSWORD)" \
