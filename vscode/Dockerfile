@@ -6,6 +6,14 @@ SHELL ["/bin/bash", "-c"]
 
 COPY . $WORKDIR
 
+ENV PUID=0 
+ENV PGID=0 
+ENV TZ=Asia/Manila
+ENV DEFAULT_WORKSPACE=/home/code
+
+VOLUME /opt/vscode/config
+VOLUME /home/code
+
 RUN apt-get update && \
     apt-get install -y zsh \
     fonts-powerline \
