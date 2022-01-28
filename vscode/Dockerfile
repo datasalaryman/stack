@@ -8,7 +8,8 @@ COPY . $WORKDIR
 
 RUN apt-get update && \
     apt-get install -y zsh \
-    fonts-powerline && \
+    fonts-powerline \
+    git && \
     chsh -s $(which zsh)
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
