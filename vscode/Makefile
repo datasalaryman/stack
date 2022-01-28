@@ -8,7 +8,7 @@ PASSWORD=vscode
 build:
 	docker build -t=code .
 
-run:
+run: build
 	docker run -d \
 		--name=code \
 		-e PASSWORD="$(PASSWORD)" \
