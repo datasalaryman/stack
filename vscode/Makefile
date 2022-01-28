@@ -14,12 +14,13 @@ build:
 	docker build -t=code .
 
 config: 
-	if ! [[ -d "/opt/vscode/config/User" ]]; then \
+	if ! [[ -d "/opt/vscode/config/data/User" ]]; then \
 		mkdir -p /opt/vscode; \
 		mkdir -p /opt/vscode/config; \
-		mkdir -p /opt/vscode/config/User; \
+		mkdir -p /opt/vscode/config/data/; \
+		mkdir -p /opt/vscode/config/data/User; \
 	fi
-	cp settings.json /opt/vscode/config/User/
+	cp settings.json /opt/vscode/config/data/User/
 
 run: config
 	docker run -d \
