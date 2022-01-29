@@ -9,20 +9,6 @@ ENV PGID=0
 ENV TZ=Asia/Manila
 ENV DEFAULT_WORKSPACE=/home/code
 
-RUN apt-get update && \
-    apt-get install -y zsh \
-    fonts-powerline \
-    wget \
-    git \
-    vim \
-    build-essential \ 
-    python3.8-venv \
-    zsh
-
-RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.1/zsh-in-docker.sh)"
-
-RUN chsh --shell $(which zsh)
-
 VOLUME /config
 VOLUME /home/code
 
@@ -40,3 +26,19 @@ EXPOSE 8080
 EXPOSE 8000
 EXPOSE 4000
 EXPOSE 3000
+
+RUN apt-get update && \
+    apt-get install -y \
+    ca-certificates \
+    git \
+    curl\
+    fonts-powerline \
+    wget \
+    vim \
+    build-essential \ 
+    python3.8-venv \
+    zsh
+
+RUN BRANCH=master \
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" \
+    --unattended
