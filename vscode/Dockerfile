@@ -20,7 +20,7 @@ RUN apt-get update && \
     zsh && \
     chsh --shell $(which zsh)
 
-RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
+RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.1/zsh-in-docker.sh)"
 
 # TODO: Install zsh plugins
 # Reference: https://gist.github.com/willianfalbo/a6a69de0ef83815174042363313ec668
