@@ -4,10 +4,10 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 SHELL ["/bin/bash", "-c"]
 
-ENV PUID=0 
-ENV PGID=0 
-ENV TZ=Asia/Manila
-ENV DEFAULT_WORKSPACE=/home/code
+ENV PUID 0 
+ENV PGID 0 
+ENV TZ Asia/Manila
+ENV DEFAULT_WORKSPACE /home/code
 
 VOLUME /config
 VOLUME /home/code
