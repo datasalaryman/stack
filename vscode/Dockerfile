@@ -23,7 +23,7 @@ RUN apt-get update && \
     chsh --shell $(which zsh)
 
 RUN echo "`curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh`" > install.sh && \
-    ZSH="/config/.oh-my-zsh" sh install.sh "" --unattended
+    ZSH="/config/.oh-my-zsh" sh -c install.sh "" --unattended
 
 # TODO: Install zsh plugins
 # Reference: https://gist.github.com/willianfalbo/a6a69de0ef83815174042363313ec668
