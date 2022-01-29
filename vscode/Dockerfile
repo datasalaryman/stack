@@ -48,3 +48,5 @@ USER $USER_NAME
 RUN BRANCH=master \
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" \
     --unattended
+
+CMD [ "zsh" ]
