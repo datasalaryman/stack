@@ -21,7 +21,6 @@ config:
 		mkdir -p /opt/vscode/config/data/User; \
 	fi
 	cp settings.json /opt/vscode/config/data/User/
-	# cp .zshrc /opt/vscode/config/
 
 run: config
 	docker run -d \

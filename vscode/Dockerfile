@@ -43,9 +43,3 @@ RUN apt-get update && \
     build-essential \ 
     python3.8-venv \
     zsh
-
-USER $USER_NAME
-
-RUN BRANCH=master \
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" \
-    --unattended
