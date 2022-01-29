@@ -10,6 +10,7 @@ ENV PGID 0
 ENV TZ Asia/Manila
 ENV DEFAULT_WORKSPACE /home/code
 ENV USER_NAME $USER_NAME
+ENV ZSH $HOME/.oh-my-zsh
 
 RUN echo $USER_NAME
 
