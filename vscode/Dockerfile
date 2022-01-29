@@ -19,9 +19,11 @@ RUN apt-get update && \
     zsh && \
     chsh --shell $(which zsh)
 
-RUN mkdir $HOME/.oh-my-zsh
+RUN mkdir $HOME/.oh-my-zsh && \
+    chmod a+rwx $HOME/.oh-my-zsh
+
 RUN echo "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" > install.sh && \
-    sh ZSH=$HOME/.oh-my-zsh install.sh --unattended
+    ZSH=$HOME/.oh-my-zsh install.sh --unattended
 
 # TODO: Install zsh plugins
 # Reference: https://gist.github.com/willianfalbo/a6a69de0ef83815174042363313ec668
