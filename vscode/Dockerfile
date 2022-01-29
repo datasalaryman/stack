@@ -23,6 +23,9 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
 
 RUN chsh --shell $(which zsh)
 
+VOLUME /config
+VOLUME /home/code
+
 # TODO: Install zsh plugins
 # Reference: https://gist.github.com/willianfalbo/a6a69de0ef83815174042363313ec668
 
