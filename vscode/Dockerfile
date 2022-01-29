@@ -12,6 +12,7 @@ ENV DEFAULT_WORKSPACE=/home/code
 RUN apt-get update && \
     apt-get install -y zsh \
     fonts-powerline \
+    wget \
     git \
     vim \
     build-essential \ 
@@ -19,8 +20,7 @@ RUN apt-get update && \
     zsh && \
     chsh --shell $(which zsh)
 
-RUN echo "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" > install.sh && \
-    ZSH="$(echo $HOME)/.oh-my-zsh" sh install.sh --unattended
+RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 
 # TODO: Install zsh plugins
 # Reference: https://gist.github.com/willianfalbo/a6a69de0ef83815174042363313ec668
