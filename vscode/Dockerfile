@@ -43,3 +43,5 @@ RUN apt-get update && \
     build-essential \ 
     python3.8-venv \
     zsh
+
+RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.2/zsh-in-docker.sh)"
