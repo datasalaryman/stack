@@ -23,7 +23,7 @@ RUN apt-get update && \
     chsh --shell $(which zsh)
 
 RUN echo "`curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh`" > install.sh
-RUN su -s sh /install.sh
+RUN sh install.sh
 
 # TODO: Install zsh plugins
 # Reference: https://gist.github.com/willianfalbo/a6a69de0ef83815174042363313ec668
