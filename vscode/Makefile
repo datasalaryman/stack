@@ -1,4 +1,4 @@
-.PHONY: clean build run
+.PHONY: clean build config run
 
 SHELL:=/bin/bash
 
@@ -14,6 +14,8 @@ build:
 	docker build -t=code .
 
 config: 
+	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+	cp .zshrc /config/
 	if ! [[ -d "/opt/vscode/config/data/User" ]]; then \
 		mkdir -p /opt/vscode; \
 		mkdir -p /opt/vscode/config; \
