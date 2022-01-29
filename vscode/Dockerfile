@@ -17,7 +17,8 @@ RUN apt-get update && \
     fonts-powerline \
     git \
     vim \
-    build-essential && \
+    build-essential \ 
+    python3.8-venv && \
     chsh -s $(which zsh)
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
