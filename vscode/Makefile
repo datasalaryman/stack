@@ -15,7 +15,7 @@ build:
 
 config: 
 	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
-	cp .zshrc /config/
+	cp .zshrc /opt/vscode/config/
 	if ! [[ -d "/opt/vscode/config/data/User" ]]; then \
 		mkdir -p /opt/vscode; \
 		mkdir -p /opt/vscode/config; \
