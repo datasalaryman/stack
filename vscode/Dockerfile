@@ -21,7 +21,7 @@ RUN apt-get update && \
     python3.8-venv && \
     chsh -s $(which zsh)
 
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+# RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
 
 # TODO: Add custom .zshrc
 # TODO: Install zsh plugins
