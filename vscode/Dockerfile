@@ -19,9 +19,6 @@ RUN apt-get update && \
     zsh && \
     chsh --shell $(which zsh)
 
-RUN mkdir $HOME/.oh-my-zsh && \
-    chmod a+rwx $HOME/.oh-my-zsh
-
 RUN echo "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" > install.sh && \
     ZSH="$(echo $HOME)/.oh-my-zsh" sh install.sh --unattended
 
