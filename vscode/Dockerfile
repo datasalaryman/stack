@@ -15,7 +15,8 @@ VOLUME /root/code
 RUN apt-get update && \
     apt-get install -y zsh \
     fonts-powerline \
-    git && \
+    git \
+    vim && \
     chsh -s $(which zsh)
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
