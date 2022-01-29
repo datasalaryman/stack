@@ -16,7 +16,8 @@ RUN apt-get update && \
     apt-get install -y zsh \
     fonts-powerline \
     git \
-    vim && \
+    vim \
+    build-essential && \
     chsh -s $(which zsh)
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
