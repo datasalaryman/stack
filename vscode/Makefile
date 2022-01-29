@@ -21,7 +21,7 @@ config:
 		mkdir -p /opt/vscode/config/data/User; \
 	fi
 	cp settings.json /opt/vscode/config/data/User/
-	curl -K https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -o install.sh
+	curl -K https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -o install.sh
 	ZSH="/opt/vscode/config/.oh-my-zsh" /bin/sh -c install.sh "" --unattended
 	cp .zshrc /opt/vscode/config/
 	rm install.sh
