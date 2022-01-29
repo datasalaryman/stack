@@ -22,7 +22,7 @@ RUN apt-get update && \
     zsh && \
     chsh --shell $(which zsh)
 
-RUN curl -K https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -o - || zsh || true
+RUN curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -o - || zsh || true
 
 # TODO: Install zsh plugins
 # Reference: https://gist.github.com/willianfalbo/a6a69de0ef83815174042363313ec668
