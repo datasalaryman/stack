@@ -17,10 +17,11 @@ RUN apt-get update && \
     vim \
     build-essential \ 
     python3.8-venv \
-    zsh && \
-    chsh --shell $(which zsh)
+    zsh
 
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.1/zsh-in-docker.sh)"
+
+RUN chsh --shell $(which zsh)
 
 # TODO: Install zsh plugins
 # Reference: https://gist.github.com/willianfalbo/a6a69de0ef83815174042363313ec668
