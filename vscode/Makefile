@@ -6,8 +6,8 @@ VERSION=4.1.2
 PASSWORD=vscode
 
 clean:
-	if [[ -d "/opt/vscode/config/" ]]; then \
-		rm -r /opt/vscode/config/*; \
+	if [[ -d "/opt/vscode/config" ]]; then \
+		rm -r /opt/vscode/config; \
 	fi
 
 build:
