@@ -21,8 +21,10 @@ config:
 		mkdir -p /opt/vscode/config/data/User; \
 	fi
 	cp settings.json /opt/vscode/config/data/User/
-	/bin/sh -c "`curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh`" "" --unattended
+	curl -K https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -o install.sh
+	ZSH="/opt/vscode/config/.oh-my-zsh" /bin/sh -c install.sh "" --unattended
 	cp .zshrc /opt/vscode/config/
+	rm install.sh
 
 run: config
 	docker run -d \
