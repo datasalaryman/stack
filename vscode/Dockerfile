@@ -9,9 +9,6 @@ ENV PGID=0
 ENV TZ=Asia/Manila
 ENV DEFAULT_WORKSPACE=/home/code
 
-VOLUME /opt/vscode/config
-VOLUME /root/code
-
 RUN apt-get update && \
     apt-get install -y zsh \
     fonts-powerline \
@@ -22,7 +19,7 @@ RUN apt-get update && \
     zsh && \
     chsh --shell $(which zsh)
 
-RUN curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -o - || zsh || true
+RUN sh -c "$(curl https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" --unattended
 
 # TODO: Install zsh plugins
 # Reference: https://gist.github.com/willianfalbo/a6a69de0ef83815174042363313ec668
