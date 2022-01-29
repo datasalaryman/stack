@@ -18,7 +18,7 @@ RUN apt-get update && \
     git && \
     chsh -s $(which zsh)
 
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
 
 # TODO: Add custom .zshrc
 # TODO: Install zsh plugins
