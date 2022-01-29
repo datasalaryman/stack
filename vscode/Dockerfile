@@ -26,3 +26,13 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
 # Reference: https://gist.github.com/willianfalbo/a6a69de0ef83815174042363313ec668
 
 EXPOSE 8443
+
+# Expose different terminals for various applications
+EXPOSE 25
+EXPOSE 587
+EXPOSE 465
+EXPOSE 2525
+EXPOSE 8080
+EXPOSE 8000
+EXPOSE 4000
+EXPOSE 3000
