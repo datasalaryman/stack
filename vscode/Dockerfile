@@ -1,6 +1,7 @@
 FROM lscr.io/linuxserver/code-server
 
 ARG DEBIAN_FRONTEND=noninteractive
+ARG USER_NAME="root"
 
 SHELL ["/bin/bash", "-c"]
 
@@ -8,6 +9,9 @@ ENV PUID 0
 ENV PGID 0 
 ENV TZ Asia/Manila
 ENV DEFAULT_WORKSPACE /home/code
+ENV USER_NAME $USER_NAME
+
+RUN echo $USER_NAME
 
 VOLUME /config
 VOLUME /home/code
@@ -38,6 +42,8 @@ RUN apt-get update && \
     build-essential \ 
     python3.8-venv \
     zsh
+
+USER $USER_NAME
 
 RUN BRANCH=master \
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" \
