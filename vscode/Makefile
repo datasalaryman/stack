@@ -25,6 +25,7 @@ config:
 
 run: config
 	docker run -d \
+		-it \
 		--name=code \
 		-e PASSWORD="$(PASSWORD)" \
   		-p 8443:8443 \
