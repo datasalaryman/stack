@@ -11,6 +11,8 @@ clean:
 	fi
 
 build:
+	docker image rm --force code &> /dev/null
+	docker image prune --force
 	docker build -t=code .
 
 config: 
@@ -23,6 +25,8 @@ config:
 	cp settings.json /opt/vscode/config/data/User/
 
 run: config
+	docker container rm --force code &> /dev/null
+	docker container prune --force
 	docker run -d \
 		-it \
 		--name=code \
