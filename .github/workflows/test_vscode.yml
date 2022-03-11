@@ -10,11 +10,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-      - name: Build docker image
+      - name: Build docker image and push
         run: >
           cd vscode && 
-          make build
-      - name: Run docker container in actions run
-        run: > 
-          cd vscode &&
-          make run PASSWORD="${{ secrets.VSCODE_PASSWORD }}"
+          make build && 
+          make push

@@ -2,27 +2,20 @@
 
 SHELL:=/bin/bash
 
+REPO=ghcr.io/datasalaryman/stack/code
+
 VERSION=4.1.2
 PASSWORD=vscode
 
-clean:
-	if [[ -d "/opt/vscode/config" ]]; then \
-		rm -r /opt/vscode/config; \
-	fi
-
 build:
-	docker image rm --force code &> /dev/null
-	docker image prune --force
-	docker build -t=code .
+	docker build \
+		-f Dockerfile \
+		-t $(REPO):$(VERSION) .
 
-config: 
-	if ! [[ -d "/opt/vscode/config/data/User" ]]; then \
-		mkdir -p /opt/vscode; \
-		mkdir -p /opt/vscode/config; \
-		mkdir -p /opt/vscode/config/data/; \
-		mkdir -p /opt/vscode/config/data/User; \
-	fi
-	cp settings.json /opt/vscode/config/data/User/
+push:
+	docker push $(REPO):$(VERSION) && \
+	docker tag $(REPO):$(VERSION) $(REPO):latest && \
+	docker push $(REPO):latest
 
 run: config
 	docker container rm --force code &> /dev/null
