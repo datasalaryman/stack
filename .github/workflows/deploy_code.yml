@@ -18,6 +18,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build docker image and push
         run: >
-          cd vscode && 
+          cd code && 
           make build && 
           make push
