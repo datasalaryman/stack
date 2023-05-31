@@ -34,6 +34,6 @@ run: config
   		-p 4000:4000 \
   		-p 3000:3000 \
   		-v /opt/vscode/config:/config \
-		-v /root/code:/home/code \
+		-v /home/ubuntu/code:/home/code \
   		--restart unless-stopped \
   		code
