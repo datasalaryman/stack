@@ -5,13 +5,17 @@ on:
         description: 'Version tag of the Github Action Runner deployment'
         required: true
         type: string
+      github_pat:
+        description: 'Github Personal Access Token'
+        required: true
+        type: string
 
 
 jobs:
   deploy-github-action-image:
     name: Deploy Github Action to Github Container Repository
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -23,11 +27,11 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ github.event.inputs.github_pat }}
 
       - name: Build docker image and push
         env:
-          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACCESS_TOKEN: ${{ github.event.inputs.github_pat }}
 
         run: |
           docker build -f "action-runner/Dockerfile" -t action-runner ./action-runner
