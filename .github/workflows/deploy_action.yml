@@ -31,17 +31,18 @@ jobs:
 
       - name: Build docker image and push
         env:
+          REPO: ghcr.io/datasalaryman/stack/action-runner
           ACCESS_TOKEN: ${{ github.event.inputs.github_pat }}
 
         run: |
-          docker build -f "action-runner/Dockerfile" -t action-runner ./action-runner
-          docker tag action-runner:latest action-runner:${{ github.event.inputs.version }}
-          docker push action-runner:${{ github.event.inputs.version }}
+          docker build -f "action-runner/Dockerfile" -t "$REPO" ./action-runner
+          docker tag $REPO:latest $REPO:${{ github.event.inputs.version }}
+          docker push $REPO:${{ github.event.inputs.version }}
 
       - name: Cleanup environment
 
         run: |
-          docker image rm -f action-runner:${{ github.event.inputs.version }}
-          docker image rm -f action-runner:latest
+          docker image rm -f $REPO:${{ github.event.inputs.version }}
+          docker image rm -f $REPO:latest
 
 
