@@ -7,6 +7,8 @@ ARG DOCKER_COMPOSE_VERSION=1.28.2
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+LABEL org.opencontainers.image.source=https://github.com/datasalaryman/stack
+
 RUN \
   # update the base packages and add a non-sudo user
   apt-get update -y && apt-get upgrade -y && useradd -m docker && \
