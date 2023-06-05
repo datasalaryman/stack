@@ -1,0 +1,43 @@
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag of the Github Action Runner deployment'
+        required: true
+        type: string
+
+
+jobs:
+  deploy-github-action-image:
+    name: Deploy Github Action to Github Container Repository
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+          ref: '${{ github.event.inputs.branch }}'
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build docker image and push
+        env:
+          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        run: |
+          docker build -f "action-runner/Dockerfile" -t action-runner ./action-runner
+          docker tag action-runner:latest action-runner:${{ github.event.inputs.version }}
+          docker push action-runner:${{ github.event.inputs.version }}
+
+      - name: Cleanup environment
+
+        run: |
+          docker image rm -f action-runner:${{ github.event.inputs.version }}
+          docker image rm -f action-runner:latest
+
+
