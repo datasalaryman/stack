@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 
 # We should probably update these periodically
-ARG RUNNER_VERSION=2.277.1
+ARG RUNNER_VERSION=2.304.0
 ARG DOCKER_COMPOSE_VERSION=1.28.2
 
 ARG DEBIAN_FRONTEND=noninteractive
