@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 
 # We should probably update these periodically
-ARG RUNNER_VERSION=2.277.1
+ARG RUNNER_VERSION=2.304.0
 ARG DOCKER_COMPOSE_VERSION=1.28.2
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -27,9 +27,15 @@ RUN \
   # cd into the user directory, download and unzip the github actions runner
   cd /home/docker && mkdir actions-runner && cd actions-runner && \
   curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-arm64-${RUNNER_VERSION}.tar.gz && \
-  tar xzf ./actions-runner-linux-arm64-${RUNNER_VERSION}.tar.gz
+  tar xzf ./actions-runner-linux-arm64-${RUNNER_VERSION}.tar.gz && \
   # install some additional dependencies
-  # chown -R docker ~docker/home/docker/actions-runner/bin/installdependencies.sh
+  chown -R docker ~docker/actions-runner/* && \
+  ~docker/actions-runner/bin/installdependencies.sh && \
+  cd ./bin && \
+  for lib in $(find . -name 'System.*'); do \
+  toFile=$(echo "$lib" | sed -e 's/\.\/System\./.\/libSystem./g'); \
+  if ! [ -f $toFile ]; then sudo ln -s $lib $toFile; fi; \
+  done && cd ..
 
 # copy over the start.sh script
 COPY start.sh start.sh
