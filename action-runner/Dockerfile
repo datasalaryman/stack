@@ -29,7 +29,7 @@ RUN \
   curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-arm64-${RUNNER_VERSION}.tar.gz && \
   tar xzf ./actions-runner-linux-arm64-${RUNNER_VERSION}.tar.gz && \
   # install some additional dependencies
-  chown -R docker ~docker/home/docker/actions-runner/bin//installdependencies.sh && \
+  chown -R docker ~docker/home/docker/actions-runner/bin/installdependencies.sh && \
   cd ./bin && \
   for lib in $(find . -name 'System.*'); do \
   toFile=$(echo "$lib" | sed -e 's/\.\/System\./.\/libSystem./g'); \
