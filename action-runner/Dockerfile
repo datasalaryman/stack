@@ -13,7 +13,7 @@ RUN \
   # update the base packages and add a non-sudo user
   apt-get update -y && apt-get upgrade -y && useradd -m docker && \
   apt-get install -y \
-  apt-utils dialog -y curl jq build-essential libssl-dev libffi-dev python3 python3-venv python3-dev apt-transport-https ca-certificates gnupg-agent software-properties-common && \
+  apt-utils dialog -y curl jq build-essential libssl-dev libffi-dev python3 python3-venv python3-dev apt-transport-https ca-certificates gnupg-agent software-properties-common liblttng-ust1 && \
   # install docker
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg && \
   echo \
