@@ -45,7 +45,7 @@ USER docker
 COPY start.sh start.sh
 
 # make the script executable
-RUN chown start.sh && chmod +x start.sh
+RUN chown docker start.sh && chmod +x start.sh
 
 # set the entrypoint to the start.sh script
 ENTRYPOINT ["./start.sh"]
