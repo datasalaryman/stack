@@ -34,7 +34,7 @@ RUN \
   cd ./bin && \
   for lib in $(find . -name 'System.*'); do \
   toFile=$(echo "$lib" | sed -e 's/\.\/System\./.\/libSystem./g'); \
-  if ! [ -f $toFile ]; then sudo ln -s $lib $toFile; fi; \
+  if ! [ -f $toFile ]; then ln -s $lib $toFile; fi; \
   done && cd ..
 
 # copy over the start.sh script
