@@ -37,15 +37,21 @@ RUN \
   if ! [ -f $toFile ]; then ln -s $lib $toFile; fi; \
   done && cd ..
 
-# since the config and run script for actions are not allowed to be run by root,
-# set the user to "docker" so all subsequent commands are run as the docker user
-USER docker
+WORKDIR /home/docker
 
 # copy over the start.sh script
 COPY start.sh start.sh
 
+RUN chown -R docker:docker /home/docker
+
+RUN chmod 755 /home/docker
+
 # make the script executable
-RUN chown docker start.sh && chmod +x start.sh
+RUN chmod +x /home/docker/start.sh
+
+# since the config and run script for actions are not allowed to be run by root,
+# set the user to "docker" so all subsequent commands are run as the docker user
+USER docker
 
 # set the entrypoint to the start.sh script
 ENTRYPOINT ["./start.sh"]
