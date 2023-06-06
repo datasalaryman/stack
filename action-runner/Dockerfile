@@ -30,7 +30,7 @@ RUN \
   tar xzf ./actions-runner-linux-arm64-${RUNNER_VERSION}.tar.gz && \
   # install some additional dependencies
   chown -R docker ~docker/actions-runner/* && \
-  source ~docker/actions-runner/bin/installdependencies.sh && \
+  ~docker/actions-runner/bin/installdependencies.sh && \
   cd ./bin && \
   for lib in $(find . -name 'System.*'); do \
   toFile=$(echo "$lib" | sed -e 's/\.\/System\./.\/libSystem./g'); \
