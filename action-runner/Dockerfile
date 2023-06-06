@@ -39,15 +39,12 @@ RUN \
 
 WORKDIR /home/docker
 
-# copy over the start.sh script
-COPY start.sh start.sh
-
 RUN chown -R docker:docker /home/docker
 
-RUN chmod 755 /home/docker
+# copy over the start.sh script
+COPY --chown=docker:docker start.sh start.sh
 
-# make the script executable
-RUN chmod +x /home/docker/start.sh
+RUN chown -R docker:docker /home/docker
 
 # since the config and run script for actions are not allowed to be run by root,
 # set the user to "docker" so all subsequent commands are run as the docker user
