@@ -44,6 +44,8 @@ RUN chown -R docker:docker /home/docker
 # copy over the start.sh script
 COPY --chown=docker:docker start.sh start.sh
 
+RUN chown -R docker:docker /home/docker
+
 # since the config and run script for actions are not allowed to be run by root,
 # set the user to "docker" so all subsequent commands are run as the docker user
 USER docker
